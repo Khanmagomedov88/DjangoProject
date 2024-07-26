@@ -1,0 +1,69 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+    Информация о квартире
+{% endblock %}
+
+{% block content %}
+<div class="features">
+    <h1>Информация о квартире №{{ apartment.number }}</h1>
+    <h4 class="left-align">Улица: {{ apartment.house.street_name }}, Дом: {{ apartment.house.house_number }}</h4>
+    <h4 class="left-align">Площадь квартиры: {{ apartment.area }} м²</h4>
+    <h4 class="left-align">Счетчики:</h4>
+    <p>!* Показания счетчика можно добавлять через панель администратора /admin.
+        При нескольких показаний счетчика, сумма квартплаты считается корректно по разности последних показаний</p>
+    <div class="table-container">
+        {% if apartment.water_meters.all %}
+            <table class="table table-dark table-striped">
+                <thead>
+                    <tr>
+                        <th>Номер счетчика</th>
+                        <th>Последние показания</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for meter in apartment.water_meters.all %}
+                    <tr>
+                        <td>{{ meter.id }}</td>
+                        <td>
+                            {% for reading in meter.readings.all %}
+                                {% with forloop.counter as counter %}
+                                    [{{ counter }}] {{ reading.reading }} <br>
+                                {% endwith %}
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Нет зарегистрированных счетчиков</p>
+        {% endif %}
+    </div>
+    <h4 class="left-align">Расчёт квартплаты за текущий месяц:</h4>
+    <div class="table-container">
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>Водоснабжение</th>
+                    <th>Содержание общего имущества</th>
+                    <th>Общая сумма</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ water_charge }} руб.</td>
+                    <td>{{ common_property_charge }} руб.</td>
+                    <td>{{ total_charge }} руб.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <a href="{% url 'houses' %}">
+        <button class="btn btn-twice btn-secondary">Вернуться к списку домов</button>
+    </a>
+    <a href="{% url 'calculate_rent' house_id=apartment.house.id %}">
+        <button class="btn btn-twice btn-primary">Рассчитать квартплату для дома</button>
+    </a>
+</div>
+{% endblock %}

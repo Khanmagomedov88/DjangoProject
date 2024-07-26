@@ -1,0 +1,15 @@
+{% extends 'main/layout.html' %}
+
+{% block title%}
+    Главная страница
+{% endblock %}
+
+{% block content%}
+    <div class="features">
+        <h1>{{title}}</h1>
+        <p>Этот сайт был создан в рамках тестового задания на позицию Backend-разработчик.
+            Был разработан с использованием веб-фреймворка Django на языке Python </p>
+        <a href="houses/"><button class="btn btn-warning">Перейти к списку домов</button></a>
+    </div>
+
+{% endblock %}

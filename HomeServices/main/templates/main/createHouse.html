@@ -1,0 +1,21 @@
+{% extends 'main/layout.html' %}
+
+{% block title%}
+    Изменить информацию
+{% endblock %}
+
+{% block content%}
+    <div class="features">
+        <h1>Изменение информации о доме</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{form.street_name}}<br>
+            {{form.house_number}}<br>
+
+            <span>{{error}}</span>
+
+            <button class="btn btn-success" type="submit">Сохранить запись</button>
+        </form>
+    </div>
+
+{% endblock %}

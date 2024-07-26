@@ -1,0 +1,22 @@
+{% extends 'main/layout.html' %}
+
+{% block title%}
+    Добавить квартиру
+{% endblock %}
+
+{% block content%}
+    <div class="features">
+        <h1>Добавить квартиру по адресу <br>{{ house.street_name }}, дом {{ house.house_number }}</h1>
+         {% if error %}
+             <p style="color: red;">{{ error }}</p>
+         {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            {{ formApartment.number }}<br>
+            {{ formApartment.area }}<br>
+            <button class="btn btn-success" type="submit">Добавить</button>
+        </form>
+    </div>
+
+{% endblock %}

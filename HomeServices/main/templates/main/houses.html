@@ -1,0 +1,29 @@
+{% extends 'main/layout.html' %}
+
+{% block title%}
+    Список домов
+{% endblock %}
+
+{% block content%}
+    <div class="features">
+        <h1> <i class="fas fa-building"></i> {{title}}</h1>
+            <div class="container">
+                {% if houses %}
+                    {% for el in houses%}
+                        <div class="alert alert-warning">
+                            <h3>{{ el }}</h3>
+                            <div class="btn-container">
+                                <a href="{% url 'house-detail' el.id %}" class="btn btn-warning">Подробнее</a>
+                                <a href="{% url 'house-update' el.id %}" class="btn btn-secondary"> <i class="fas fa-pen"></i></a>
+                                <a href="{% url 'house-delete' el.id %}" class="btn btn-danger"> <i class="fas fa-trash"></i></a>
+                            </div>
+                        </div>
+                    {% endfor %}
+            </div>
+                {% else %}
+                    <p>Список пуст</p>
+        {% endif %}
+        <a href="addhouse"><button class="btn btn-info"><i class="fas fa-plus-circle"></i> Добавить дом</button></a>
+    </div>
+
+{% endblock %}

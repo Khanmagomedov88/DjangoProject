@@ -1,0 +1,165 @@
+body{
+    background: #2c2c2c;
+}
+
+.btn-twice {
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+aside{
+    float: left;
+    background: #181818;
+    width: 20%;
+    padding: 2.5%;
+    height: 100vh;
+    color: #fff;
+    border-right: 5px solid #4d4d4d;
+}
+
+aside img{
+    width: 92px;
+    float: left;
+}
+
+aside .logo {
+    font-size: 40px;
+    margin-left: 11px;
+    top: 12px;
+    font-weight: bold;
+    position: relative;
+}
+
+aside h3 {
+    margin-top: 50px;
+    font-size: 26px;
+}
+
+aside ul {list-style: none}
+
+aside ul li{
+    color: #fff;
+    display: block;
+    margin-top: 16px;
+    text-decoration: none;
+}
+
+aside ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+aside ul li:hover a, aside ul li a:hover {
+    color: #eb5959;
+    text-decoration: none;
+    transform: scale(1.05);
+}
+
+main .features {
+    float: left;
+    color: #fff;
+    margin-top: 20px;
+    text-align: center;
+    width: 75%;
+}
+
+
+main .features h1 {font-size: 45px;}
+main .features p {max-width: 500px; margin: 20px auto}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 2000px;
+    margin: 20px auto;
+}
+
+.alert-warning {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    border: 2px solid #e0a800;
+    padding: 20px;
+    margin: 20px;
+    box-sizing: border-box;
+    width: 330px;
+    text-align: left;
+}
+
+
+.alert-warning h3 {
+    margin: 0 0 10px 0; /* Убираем отступы, чтобы h3 занимал минимальную высоту */
+}
+
+.alert-warning .btn-container {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.btn-container .btn {
+    flex: 1; /* Равномерное распределение ширины кнопок */
+}
+
+.alert-secondary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f8f9fa;
+    border: 1px solid #d6d8db;
+    padding: 10px;
+    margin: 10px;
+    box-sizing: border-box;
+    width: 90%;
+    height: auto;
+    text-align: left;
+    clear: both;
+}
+
+.alert-secondary h5 {
+    margin: 0;
+}
+
+.alert-secondary .btn {
+    margin-left: auto;
+}
+
+.container-apartment {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+.table-container {
+    display: flex;
+    justify-content: center;
+}
+
+.table {
+    width: 48%; /* Уменьшенная ширина таблицы */
+    border-collapse: collapse;
+    font-size: 18px;
+    text-align: center;
+    margin: 20px;
+}
+
+.left-align {
+    text-align: left;
+    margin-left: 40px;
+    margin: 10px;
+}
+
+form{
+    margin: 20px auto;
+    width: 600px;
+    margin-top: 50px;
+}

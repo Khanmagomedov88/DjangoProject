@@ -1,0 +1,18 @@
+{% extends 'main/layout.html' %}
+
+{% block title%}
+    Удаление дома
+{% endblock %}
+
+{% block content%}
+    <div class="features">
+        <h1>Вы уверены что хотите удалить информацию о доме?</h1>
+        <form method="post">
+            {% csrf_token %}
+
+            <button class="btn btn-danger" type="submit">Удалить выбранный дом</button>
+             <a href="{% url 'houses' %}" class="btn btn-success">Вернуться назад</a>
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'main/layout.html' %}
+
+{% block title%}
+    Добавить дом
+{% endblock %}
+
+{% block content%}
+    <div class="features">
+        <h1>Добавление дома в базу</h1>
+        {% if error %}
+             <p style="color: red;">{{ error }}</p>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            {{form.street_name}}<br>
+            {{form.house_number}}<br>
+
+            <button class="btn btn-success" type="submit">Сохранить запись</button>
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}
+    Редактировать тариф
+{% endblock %}
+
+{% block content %}
+    <div class="features">
+       <h1>Изменение тарифа</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.service }} <br>
+            {{ form.price_per_unit }} <br>
+            <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+            <a href="{% url 'tariffs' %}" class="btn btn-secondary">Отмена</a>
+        </form>
+    </div>
+{% endblock %}

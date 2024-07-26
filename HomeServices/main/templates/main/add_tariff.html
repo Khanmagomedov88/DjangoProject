@@ -1,0 +1,24 @@
+{% extends 'main/layout.html' %}
+
+{% block title%}
+    Добавить тариф
+{% endblock %}
+
+{% block content%}
+    <div class="features">
+        <h1>Добавление тарифа</h1>
+        {% if error %}
+             <p style="color: red;">{{ error }}</p>
+        {% endif %}
+
+        <form method="post">
+            {% csrf_token %}
+            {{form.service}}<br>
+            {{form.price_per_unit}}<br>
+
+            <button class="btn btn-success" type="submit">Сохранить тариф</button>
+            <a href="{% url 'tariffs' %}"><button class="btn btn-secondary">Вернуться к списку тарифов</button></a>
+        </form>
+    </div>
+
+{% endblock %}

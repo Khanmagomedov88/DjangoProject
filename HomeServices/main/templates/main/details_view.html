@@ -1,0 +1,31 @@
+{% extends 'main/layout.html' %}
+
+{% block title%}
+    Список домов
+{% endblock %}
+
+{% block content%}
+    <div class="features">
+        <h1>{{ house.street_name }}, дом {{ house.house_number}}</h1>
+        <h3>Список квартир</h3>
+        <div class="container-apartment">
+                {% for apartment in apartments %}
+                         <div class="alert alert-secondary">
+                            <h5>Квартира №{{ apartment.number }} | Площадь: {{ apartment.area }} м²
+                            | Кол-во счетчиков: {{apartment.water_meters.count }}</h5>
+                             <div class="btn-container">
+                                 <a href="{% url 'add_water_meter' apartment.id %}" class="btn btn-primary">Добавить счетчик</a>
+                                <a href="{% url 'apartment_detail' apartment.id %}" class="btn btn-warning">Подробнее</a>
+                                <a href="{% url 'edit_apartment' apartment.id %}" class="btn btn-secondary"><i class="fas fa-pen"></i></a>
+                                <a href="{% url 'delete_apartment' apartment.id %}" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                             </div>
+                        </div>
+                {% empty %}
+                    <h5>В этом доме еще нет зарегестрированных квартир</h5>
+                {% endfor %}
+        </div>
+        <a href="{% url 'houses' %}"><button class="btn btn-twice btn-secondary">Вернуться к списку домов</button></a>
+        <a href="{% url 'addApartment' pk=house.pk %}"><button class="btn btn-twice btn-success"><i class="fas fa-plus-circle"></i> Добавить квартиру</button></a>
+    </div>
+
+{% endblock %}

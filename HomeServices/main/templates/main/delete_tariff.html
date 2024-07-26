@@ -1,0 +1,18 @@
+{% extends 'main/layout.html' %}
+
+{% block title%}
+    Удаление тарифа
+{% endblock %}
+
+{% block content%}
+    <div class="features">
+        <h2>Вы уверены, что хотите удалить тариф "{{ tariff.service }}"?</h2>
+        <form method="post">
+            {% csrf_token %}
+
+            <button class="btn btn-twice btn-danger" type="submit">Удалить тариф</button>
+             <a href="{% url 'tariffs' %}" class="btn btn-twice btn-success">Вернуться назад</a>
+        </form>
+    </div>
+
+{% endblock %}
